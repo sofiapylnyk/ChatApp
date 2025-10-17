@@ -1,0 +1,13 @@
+# client/.gitignore
+
+# Dependency directories
+node_modules/
+
+# Build output directory
+/build
+
+# Runtime data
+.env
+
+# Tests
+/coverage
