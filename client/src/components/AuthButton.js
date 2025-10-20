@@ -6,11 +6,10 @@ import '../styles/Chat.css'; // Стилі для кнопок логіну
  * @param {string} provider - Назва провайдера ('google', 'facebook').
  */
 const AuthButton = ({ provider }) => {
-    // URL для редиректу на Backend, який обробляє OAuth
-    const authUrl = `http://localhost:3000/auth/${provider}`; 
+    const serverBaseUrl = 'https://chatapp-njp5.onrender.com'; 
+    const authUrl = `${serverBaseUrl}/auth/${provider}`;
 
     const handleClick = () => {
-        // Використовуємо window.location.href, щоб почати OAuth потік
         window.location.href = authUrl;
     };
 
