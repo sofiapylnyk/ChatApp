@@ -10,6 +10,9 @@ const socketService = require('./services/socketService');
 // Завантаження змінних середовища
 dotenv.config();
 
+const CLIENT_URL = process.env.CLIENT_URL || 'http://localhost:3000';
+const PORT = process.env.PORT || 3000;
+
 // Підключення до бази даних
 connectDB();
 
@@ -28,8 +31,6 @@ socketService.initializeSocket(io);
 
 // Експортуємо io, щоб контролери могли надсилати повідомлення
 exports.io = io; 
-
-const CLIENT_URL = process.env.CLIENT_URL || 'http://localhost:3000';
 
 // Middleware
 app.use(cors({
@@ -58,7 +59,5 @@ app.use('/auth', require('./routes/authRoutes'));
 
 //app.get('/', (req, res) => res.send('API is running...'));
 
-
-const PORT = process.env.PORT || 3000;
 
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
